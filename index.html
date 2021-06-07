@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View images</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            h1, h2, h3 {
+                font-weight: 400;
+            }
+            input {
+                border: 2px solid black;
+                outline: 0;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                padding: 2px;
+                border-radius: 2px;
+                width: 500px;
+            }
+            #output {
+                border: 2px solid grey;
+                padding: 50px;
+            }
+            a {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>View images</h1>
+        <h2>Paste a url into the box below, or use a url parameter (like <small>https://gosoccerboy5.github.io/view-images/?url=http://example.com/image.png</small>)</h2>
+        <input id="input"> <button id="copy">Copy as url</button>
+        <br>
+        <br>
+        <img style="display: none;" id="output">
+        <br><br><br>
+        <a href="https://gosoccerboy5.github.io">Home</a>
+        <script>
+            const param = window.location.href.match(/[\?&]url=[^&]*/)?.[0].substring(5);
+            const input = document.querySelector("#input");
+            const output = document.querySelector("#output");
+            const button = document.querySelector("#copy");
+            input.onkeyup = function(event) {
+                if (event.keyCode === 13 && input.value !== "") {
+                    output.style.display = "";
+                    output.src = input.value;
+                }
+            };
+            if (param !== undefined) {
+                input.value = param;
+                input.onkeyup({keyCode: 13});
+            }
+            button.addEventListener("click", function() {
+                let oldValue = input.value;
+                input.value = "https://gosoccerboy5.github.io/view-images/?url=" + oldValue;
+                input.select();
+                document.execCommand("copy");
+                input.value = oldValue;
+            });
+        </script>
+    </body>
+</html>
