@@ -5,12 +5,6 @@ h1, h2, h3 {
     font-weight: 400;
 }
 input {
-    border: 2px solid black;
-    outline: 0;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    padding: 2px;
-    border-radius: 2px;
     width: 500px;
 }
 #output {
