@@ -22,7 +22,7 @@
             const button = document.querySelector("#copy");
             let param = getUrlVars()['url'];
             if (param !== undefined) {
-                window.location = "https://gosoccerboy5.github.io/view-images#"+param;
+                window.location = "https://gosoccerboy5.github.io/view-images#"+decodeURIComponent(param);
             }
             input.onkeyup = function(event) {
                 if (event.keyCode === 13 && input.value !== "") {
