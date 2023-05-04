@@ -9,10 +9,10 @@
     <body>
         <div class="main" id="main">
             <h1>Image Viewer</h1>
-            <h2>Paste an image url into the box below, or use a URL fragment (like <small>https://gosoccerboy5.github.io/view-images/#http://example.com/image.png</small>)</h2>
+            <h2>Paste an image url into the box below, or use a URL fragment (like <small>https://mcarans.github.io/view-images/#http://example.com/image.png</small>)</h2>
             <input id="input" size="70"> <button id="copy">Copy as url</button>
             <br><br><br>
-            <a href=https://gosoccerboy5.github.io>Home</a> | This page is open source. <a href="https://github.com/gosoccerboy5/view-images/">Improve this page.</a>
+            <a href=https://mcarans.github.io>Home</a> | This page is open source. <a href="https://github.com/mcarans/view-images/">Improve this page.</a>
         </div>
         <div class="view" id="view">
             <img class="output" id="output" src="about:blank" alt="Invalid image URL." width="auto" height="auto">
@@ -26,7 +26,7 @@
             const view = document.querySelector("#view");
             let param = getUrlVars()['url'];
             if (param !== undefined) {
-                window.location = "https://gosoccerboy5.github.io/view-images/#"+decodeURIComponent(param);
+                window.location = "https://mcarans.github.io/view-images/#"+decodeURIComponent(param);
             }
             input.onkeyup = function(event) {
                 if (event.keyCode === 13 && input.value !== "") {
@@ -41,7 +41,7 @@
             });
             button.addEventListener("click", function() {
                 let oldValue = input.value;
-                input.value = "https://gosoccerboy5.github.io/view-images/#" + oldValue;
+                input.value = "https://mcarans.github.io/view-images/#" + oldValue;
                 input.select();
                 document.execCommand("copy");
                 input.value = oldValue;
